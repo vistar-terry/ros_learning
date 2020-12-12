@@ -1,2 +1,0 @@
-gmapping:learning_communication:mbot_bringup:mbot_description:mbot_gazebo:mbot_navigation:mbot_teleop
--DCATKIN_DEVEL_PREFIX=/home/vistar/Desktop/mbot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/vistar/Desktop/mbot_ws/install -G Unix Makefiles
