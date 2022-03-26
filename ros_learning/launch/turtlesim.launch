@@ -1,6 +1,0 @@
-<!-- 一个基本的launch文件 -->
-<launch>
-    <!-- pkg定义节点所在功能包名称,type定义节点的可执行文件名称,相当于使用rosrun命令启动节点 -->
-    <!-- name为运行的节点名称,会覆盖init()设置的节点名称 -->
-    <node pkg="turtlesim" name="turtlesim" type="turtlesim_node"/>
-</launch>
