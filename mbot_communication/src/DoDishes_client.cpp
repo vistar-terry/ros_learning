@@ -1,11 +1,11 @@
 #include <actionlib/client/simple_action_client.h>
-#include "learning_communication/DoDishesAction.h"
+#include "mbot_communication/DoDishesAction.h"
 
-typedef actionlib::SimpleActionClient<learning_communication::DoDishesAction> Client;
+typedef actionlib::SimpleActionClient<mbot_communication::DoDishesAction> Client;
 
 // 当action完成后会调用该回调函数一次
 void doneCb(const actionlib::SimpleClientGoalState& state,
-        const learning_communication::DoDishesResultConstPtr& result)
+        const mbot_communication::DoDishesResultConstPtr& result)
 {
     ROS_INFO("Yay! The dishes are now clean");
     ros::shutdown();
@@ -18,7 +18,7 @@ void activeCb()
 }
 
 // 收到feedback后调用该回调函数
-void feedbackCb(const learning_communication::DoDishesFeedbackConstPtr& feedback)
+void feedbackCb(const mbot_communication::DoDishesFeedbackConstPtr& feedback)
 {
     ROS_INFO(" percent_complete : %f ", feedback->percent_complete);
 }
@@ -36,7 +36,7 @@ int main(int argc, char** argv)
     ROS_INFO("Action server started, sending goal.");
 
     // 创建一个action的goal
-    learning_communication::DoDishesGoal goal;
+    mbot_communication::DoDishesGoal goal;
     goal.dishwasher_id = 1;
 
     // 发送action的goal给服务器端，并且设置回调函数

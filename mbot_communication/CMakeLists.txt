@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(learning_communication)
+project(mbot_communication)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -111,7 +111,7 @@ generate_messages(DEPENDENCIES std_msgs actionlib_msgs)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES learning_communication
+#  LIBRARIES mbot_communication
    CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
 #  DEPENDS system_lib
 )
@@ -129,7 +129,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/learning_communication.cpp
+#   src/${PROJECT_NAME}/mbot_communication.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -140,19 +140,19 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(talker src/talker.cpp)
+add_executable(talker src/topic/talker.cpp)
 target_link_libraries(talker ${catkin_LIBRARIES})
 #add_dependencies(talker ${PROJECT_NAME}_generate_messages_cpp)
 
-add_executable(listener src/listener.cpp)
+add_executable(listener src/topic/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 #add_dependencies(listener ${PROJECT_NAME}_generate_messages_cpp)
 
-add_executable(server src/server.cpp)
+add_executable(server src/service/server.cpp)
 target_link_libraries(server ${catkin_LIBRARIES})
 add_dependencies(server ${PROJECT_NAME}_gencpp)
 
-add_executable(client src/client.cpp)
+add_executable(client src/service/client.cpp)
 target_link_libraries(client ${catkin_LIBRARIES})
 add_dependencies(client ${PROJECT_NAME}_gencpp)
 
@@ -219,7 +219,7 @@ add_dependencies(DoDishes_server ${${PROJECT_NAME}_EXPORTED_TARGETS})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_learning_communication.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_mbot_communication.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

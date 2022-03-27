@@ -3,15 +3,15 @@
  */
 
 #include "ros/ros.h"
-#include "learning_communication/AddTwoInts.h"
+#include "mbot_communication/AddTwoInts.h"
 
 // service回调函数，输入参数req，输出参数res
-bool add(learning_communication::AddTwoInts::Request &req,
-         learning_communication::AddTwoInts::Response &res)
+bool add(mbot_communication::AddTwoInts::Request &req,
+         mbot_communication::AddTwoInts::Response &res)
 {
     // 将输入参数中的请求数据相加，结果放到应答变量中
     res.sum = req.a + req.b;
-    ROS_INFO("request: x=%ld, y=%ld", (long int)req.a, (long int)req.b);
+    ROS_INFO("request: x: %ld, y: %ld", (long int)req.a, (long int)req.b);
     ROS_INFO("sending back response: [%ld]", (long int)res.sum);
 
     return true;

@@ -4,7 +4,7 @@
 
 #include <cstdlib>
 #include "ros/ros.h"
-#include "learning_communication/AddTwoInts.h"
+#include "mbot_communication/AddTwoInts.h"
 
 int main(int argc, char **argv)
 {
@@ -21,11 +21,11 @@ int main(int argc, char **argv)
 	// 创建节点句柄
 	ros::NodeHandle n;
 
-	// 创建一个client，请求add_two_int service，service消息类型是learning_communication::AddTwoInts
-	ros::ServiceClient client = n.serviceClient<learning_communication::AddTwoInts>("add_two_ints");
+	// 创建一个client，请求add_two_int service，service消息类型是mbot_communication::AddTwoInts
+	ros::ServiceClient client = n.serviceClient<mbot_communication::AddTwoInts>("add_two_ints");
 
-	// 创建learning_communication::AddTwoInts类型的service消息
-	learning_communication::AddTwoInts srv;
+	// 创建mbot_communication::AddTwoInts类型的service消息
+	mbot_communication::AddTwoInts srv;
 	srv.request.a = atoll(argv[1]);
 	srv.request.b = atoll(argv[2]);
 

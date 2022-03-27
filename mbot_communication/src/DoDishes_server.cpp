@@ -1,14 +1,14 @@
 #include <ros/ros.h>
 #include <actionlib/server/simple_action_server.h>
-#include "learning_communication/DoDishesAction.h"
+#include "mbot_communication/DoDishesAction.h"
 
-typedef actionlib::SimpleActionServer<learning_communication::DoDishesAction> Server;
+typedef actionlib::SimpleActionServer<mbot_communication::DoDishesAction> Server;
 
 // 收到action的goal后调用该回调函数
-void execute(const learning_communication::DoDishesGoalConstPtr& goal, Server* as)
+void execute(const mbot_communication::DoDishesGoalConstPtr& goal, Server* as)
 {
     ros::Rate r(1);
-    learning_communication::DoDishesFeedback feedback;
+    mbot_communication::DoDishesFeedback feedback;
 
     ROS_INFO("Dishwasher %d is working.", goal->dishwasher_id);
 
